@@ -57,7 +57,6 @@ class AuthManager {
   }
   static logout() {
     JwtManager.clearToken();
-    window.location.pathname='/';
   }
 }
 
