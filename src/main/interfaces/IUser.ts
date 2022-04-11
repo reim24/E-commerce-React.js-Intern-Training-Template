@@ -1,9 +1,12 @@
 
 interface IUser {
   	id?: number;
-	firstname: string;
-	lastname: string;
+	firstName: string;
+	lastName: string;
 	email: string;
+	birthdate: string
+	phone: string
+	username: string
 	password?: string;
 }
 

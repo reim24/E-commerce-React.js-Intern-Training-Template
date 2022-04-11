@@ -10,7 +10,7 @@ const initApp = async () => {
   let currentUser = null;
   try {
     if (JwtManager.accessToken) {
-      currentUser = await AuthManager.getUserFromToken();
+      currentUser = await AuthManager.getUserFromToken(JwtManager.accessToken);
     }
   } catch (e) {
     console.log('JwtManager.accessToken')
