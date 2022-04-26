@@ -1,0 +1,102 @@
+.login-page-wrapper {
+    display: grid;
+    place-content: center;
+    /* height: 50%; */
+    height: 100vh;
+    grid-template-rows: 1fr;
+    /* gap: 1rem; */
+  }
+  
+  .login-main-wrapper {
+    display: grid;
+    place-content: center;
+    place-items: center;
+  }
+  
+  #login-form {
+    display: grid;
+    gap: 1rem;
+    /* place-content: space-between; */
+    position: sticky;
+    /* top: 150px; */
+    backdrop-filter: blur(10px);
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    place-items: center;
+    place-content: center;
+  }
+  
+  #login-form h1 {
+    font-family: "Permanent Marker";
+    color: #28fccaf5;
+    font-size: 44px;
+    letter-spacing: 1px;
+  }
+  
+  #login-form label {
+    display: grid;
+    place-content: center;
+    width: 300px;
+    height: 40px;
+  }
+  
+  #login-form input {
+    display: grid;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-style: none;
+    padding: 10px;
+    font-size: 15px;
+    /* font-family: "Permanent Marker"; */
+  }
+  
+  #login-form button {
+    display: grid;
+    width: 300px;
+    height: 40px;
+    place-content: center;
+    border-style: none;
+    border-radius: 5px;
+    font-family: "Permanent Marker";
+    background-color: #4190d1;
+    color: whitesmoke;
+    transition: 0.3s;
+  }
+  
+  #login-form button:hover {
+    cursor: pointer;
+    transform: translate(-3px);
+    transition: 0.3s;
+  }
+  
+  #signup-link-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    font-weight: 700;
+    place-content: center;
+    gap: 1rem;
+    font-weight: 800;
+  }
+  
+  #link {
+    display: grid;
+    color: #4190d1;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+  
+  .special-image-1 {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    width: 170%;
+  }
+  
+  #link:hover {
+    cursor: pointer;
+    transform: translate(-3px);
+    transition: 0.3s;
+  }
