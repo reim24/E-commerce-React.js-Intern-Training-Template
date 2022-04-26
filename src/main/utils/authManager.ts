@@ -36,7 +36,7 @@ class AuthManager {
       token: data?.token
     };
 
-    if (responseLogin?.token && (payload as any).rememberMe) {
+    if (responseLogin?.token) {
       JwtManager.setAccessToken(responseLogin.token);
     }
 
