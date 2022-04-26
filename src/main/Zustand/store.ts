@@ -25,11 +25,15 @@ export const useStore = create<AppStoreState>((set, get): AppStoreState => ({
         const password = e.target.password.value
 
         fetch('http://reimusabelli-001-site1.itempurl.com/api/authentication/register', {
+
             method: 'POST',
+
             headers: {
                 'Content-Type': 'application/json'
             },
+
             body: JSON.stringify({ email: email, password: password, birthdate: birthdate, firstName: firstName, lastName: lastName, phone: phone, username: username })
+        
         })
             .then(resp => resp.json())
             .then(data => {
@@ -48,11 +52,15 @@ export const useStore = create<AppStoreState>((set, get): AppStoreState => ({
         }
 
         fetch(`http://reimusabelli-001-site1.itempurl.com/api/authentication/login`, {
+
                 method: "POST",
+
                 headers: {
                     "Content-Type": "application/json",
                 },
+
                 body: JSON.stringify(dataUser)
+                
             })
         .then((resp) => resp.json())
         .then((data) => {
