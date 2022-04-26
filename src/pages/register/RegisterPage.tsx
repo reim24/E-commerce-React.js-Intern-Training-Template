@@ -1,37 +1,41 @@
-import { FC, useEffect } from "react"
+import { FC, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./RegisterPage.css"
 
 const RegisterPage : FC = ()=> {
 
+    const [user, setUser] = useState()
 
-    // const navigate = useNavigate()
+    function register(e: any) {
 
-    // useEffect(() => {
-    //     validateUser()
-    // }, [])
-  
-    // if (user) {
-    //     navigate("/movies")
-    // }
+        e.preventDefault()
+        const firstName = e.target.firstName.value
+        const lastName = e.target.lastName.value
+        const email = e.target.email.value
+        const birthdate = e.target.birthdate.value
+        const phone = e.target.phone.value
+        const username = e.target.username.value
+        const password = e.target.password.value
 
-    // const fetchServices:any = async () => {
+        fetch('http://reimusabelli-001-site1.itempurl.com/api/authentication/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email, password: password, birthdate: birthdate, firstName: firstName, lastName: lastName, phone: phone, username: username })
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Oops, something went wrong.')
+                } else {
+                    localStorage.setItem('token', data.token)
+                    setUser(data.user)
+                }
+            })
 
-    //     const response:any = await axios
-
-    //       .get("https://albvitafitness.glitch.me/services")
-    //       .catch((err) => {
-    //         console.log("Err: ", err)
-    //       })
-
-    //     dispatch(setServices(response.data))
-
-    //   }
-    
-    //   useEffect(() => {
-    //     fetchServices();
-    //   }, []);
+    }
 
     function logIn() {
 
@@ -75,28 +79,23 @@ const RegisterPage : FC = ()=> {
     }
 
     useEffect(logIn, [])
-
     useEffect(validateUser, [])
-    
-    // useEffect(() => {
 
-    //     const logInAxios = async () => {
+    // const logInAxios = () => {
 
-    //         const dataUser = {
-    //             userName: "besim22",
-    //             password: "Besim123#"
-    //         }
-    
-    //         const stringifiedData = JSON.stringify(dataUser)
-    
-    //         const response = await axios.post("http://reimusabelli-001-site1.itempurl.com/api/authentication/login", {stringifiedData})
-    //         console.log(response.data)
-    
+    //     const dataUser = {
+    //         userName: "besim22",
+    //         password: "Besim123#"
     //     }
 
-    //     logInAxios()
+    //     const stringifiedData = JSON.stringify(dataUser)
 
-    // }, []);
+    //     axios.post("http://reimusabelli-001-site1.itempurl.com/api/authentication/login", {stringifiedData})
+    //     .then(response => console.log(response.data))
+
+    // }
+
+    // useEffect(logInAxios, []);
 
     return (
 
@@ -107,58 +106,58 @@ const RegisterPage : FC = ()=> {
                 <div className="main-wrapper">
 
                     <form id="signup-form" onSubmit={function (e) {
+                        register(e)
                     }}>
                         
                         <h1>Bank System</h1>
 
                         <label id="firstname" htmlFor="">
 
-                            <input type="text" placeholder="Enter your firstname" required onChange={function (e) {
+                            <input type="text" name = "firstName" placeholder="Enter your firstname" required onChange={function (e) {
                             }}/>
 
                         </label>
 
                         <label id="lastname" htmlFor="">
 
-                            <input type="text" placeholder="Enter your lastname" required onChange={function (e) {
+                            <input type="text" name = "lastName" placeholder="Enter your lastname" required onChange={function (e) {
                             }}/>
 
                         </label>
 
                         <label id="username" htmlFor="">
 
-                            <input type="text" placeholder="Enter your username" required onChange={function (e) {
+                            <input type="text" name = "username" placeholder="Enter your username" required onChange={function (e) {
                             }}/>
 
                         </label>
 
                         <label htmlFor="">
 
-                            <input type="text" id="email" placeholder="Enter your email" onChange={function (e) {
-                            }}/>
-
-                        </label>
-
-
-                        <label id="username" htmlFor="">
-
-                            <input type="phone" placeholder="Enter your phone number" required onChange={function (e) {
+                            <input type="text" name = "email" id="email" placeholder="Enter your email" onChange={function (e) {
                             }}/>
 
                         </label>
 
                         <label id="username" htmlFor="">
 
-                            <input type="date" placeholder="Enter your birthday" required onChange={function (e) {
+                            <input type="phone" name = "phone" placeholder="Enter your phone number" required onChange={function (e) {
+                            }}/>
+
+                        </label>
+
+                        <label id="username" htmlFor="">
+
+                            <input type="date" name = "birthdate" placeholder="Enter your birthday" required onChange={function (e) {
                             }}/>
 
                         </label>
 
                         <label htmlFor="">
-
+                            
                             <input
                                 type="password"
-                                name=""
+                                name = "password"
                                 id="password"
                                 placeholder="Enter your password"
                                 required
