@@ -13,9 +13,9 @@ const LoginPage : FC = ()=>{
     //     validateUser();
     // }, []);
 
-    if (user) {
-        navigate("../dashboard");
-    }
+    // if (user) {
+    //     navigate("../dashboard");
+    // }
 
     return (
 
@@ -29,6 +29,7 @@ const LoginPage : FC = ()=>{
                         id="login-form"
                         onSubmit={function (e) {
                             logInUser(e)
+                            navigate("../dashboard");
                         }}
                     >
 

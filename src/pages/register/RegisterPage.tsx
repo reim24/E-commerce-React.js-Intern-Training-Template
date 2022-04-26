@@ -10,9 +10,9 @@ const RegisterPage : FC = ()=> {
     const { registerUser, logInUser, user } = useStore()
     const navigate = useNavigate()
     
-    if(user) {
-        navigate("/dashboard")
-    }
+    // if(user) {
+    //     navigate("/dashboard")
+    // }
 
     return (
 
@@ -24,6 +24,7 @@ const RegisterPage : FC = ()=> {
 
                     <form id="signup-form" onSubmit={function (e) {
                         registerUser(e)
+                        navigate("../dashboard");
                     }}>
                         
                         <h1>Bank System</h1>
