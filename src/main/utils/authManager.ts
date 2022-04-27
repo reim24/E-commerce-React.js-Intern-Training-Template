@@ -16,7 +16,7 @@ class AuthManager {
 
   static async getUserFromToken(token: string): Promise<IUser> {
     let userInfo: IUser = null;
-    debugger
+    // debugger
     try {
       let result = await (await axios.get(`authentication/validate-token?token=${token}`)).data;
       userInfo = result;

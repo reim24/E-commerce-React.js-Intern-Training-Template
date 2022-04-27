@@ -1,15 +1,12 @@
-// import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import onRegister from "../../main/store/stores/user/login.store.on-login"
+import onRegister from "../../main/store/stores/user/register.store.on-register"
 import './register.css'
 
-export default function Register() {
+const Register = () => {
 
-    // const [registerUser, setRegisterUser] = useState([intialState])
-    const dispatch = useDispatch();
-
-    const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
@@ -27,61 +24,55 @@ export default function Register() {
             birthdate,
             phone,
             username,
+
             password
         }
         dispatch(onRegister(data))
     }
 
+    const handleClick = () => {
+        navigate('/', { replace: true })
+    }
     return (
-        <>
-            <section className="wrapper">
-                <div className="register">
-                    <h1>Register</h1>
+        <section className="wrapper">
+            <div className="register">
+                <h1 >Register</h1>
+                <form className="container" onSubmit={handleSubmit} >
 
-                    <form className="container">
-                        <label className="labelBlock">
-                            firstName
-                            <input className='input' type='text' name="firstName" />
-                        </label>
+                    <label className="labelBlock">
+                        First Name:
+                        <input className='input' type="text" name="firstName" />
+                    </label>
+                    <label className="labelBlock">
+                        Last Name:
+                        <input className='input' type="text" name="lastName" />
+                    </label>
+                    <label className="labelBlock">
+                        Email:
+                        <input className='input' type="email" name="email" />
+                    </label>
+                    <label className="labelBlock">
+                        Birthday:
+                        <input className='input' type="number" name="birthdate" />
+                    </label>
+                    <label className="labelBlock">
+                        Phone:
+                        <input className='input' type="text" name="phone" />
+                    </label>
+                    <label className="labelBlock">
+                        Username:
+                        <input className='input' type="text" name="username" />
+                    </label>
+                    <label className="labelBlock">
+                        Password:
+                        <input className='input' type="password" name="password" />
+                    </label>
+                    <input className='input' type="submit" value="Register" />
 
-                        <label className="labelBlock">
-                            lastName
-                            <input className='input' name="lastName" type='text' />
-                        </label>
-
-                        <label className="labelBlock">
-                            email
-                            <input className='input' name="email" type='email' />
-                        </label>
-
-                        <label className="labelBlock">
-                            birthdate
-                            <input className='input' name="birthdate" type='text ' />
-                        </label>
-
-                        <label className="labelBlock">
-                            phone
-                            <input className='input' name="phone" type='number' />
-                        </label>
-
-                        <label className="labelBlock">
-                            username
-                            <input className='input' name="username" type='text' />
-                        </label>
-
-                        <label className="labelBlock">
-                            password
-                            <input className='input' name="password" type='password' />
-                        </label>
-
-                        <button className="button_login" onSubmit={(e) => {
-                            handleSubmit(e)
-                        }}>Submit</button>
-                        <button className="button_login"
-                            onClick={() => navigate('/login')} >login</button>
-                    </form>
-                </div>
-            </section>
-        </>
+                </form>
+                <p onClick={handleClick} className="info">Go to login page</p>
+            </div>
+        </section>
     )
 }
+export default Register
