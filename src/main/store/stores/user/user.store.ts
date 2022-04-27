@@ -6,11 +6,12 @@ const userStore = createSlice({
   initialState: null as IUser,
   reducers: {
     setUser(_state, action: PayloadAction<IUser>) {
-      return {...action.payload, password:''};
+      return { ...action.payload, password: '' };
     },
+    invalidateUser() { return null }
   },
 });
 
 export default userStore;
 
-export const { setUser } = userStore.actions;
+export const { setUser, invalidateUser } = userStore.actions;

@@ -3,38 +3,48 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { navigateTo } from "../../main/store/stores/navigation/navigation.store";
 import onLogin from "../../main/store/stores/user/login.store.on-login"
+import './test.css'
 
-const TestPage : FC = ()=>{
-    
+const TestPage: FC = () => {
+
+
     const [userName, setUserName] = useState(null)
     const [password, setPassword] = useState(null)
+
     const dispatch = useDispatch();
-    const handleSubmit=()=>{
-        dispatch(onLogin({userName,password}));
+    const handleSubmit = () => {
+        dispatch(onLogin({ userName, password }));
     }
 
     const navigate = useNavigate();
 
-    const handleButtonClick=()=>{
-        navigate("/jkasfklsdf", {replace:true});
+    const handleButtonClick = () => {
+        navigate("/Register", { replace: true });
     }
-    return(
+
+    return (
         <>
-        <label>email</label>
-        <input
-        onChange={(e)=>setUserName(e.target.value)}
-        ></input>
-        <br></br>
-        <label>password</label>
-        <input
-        onChange={(e)=>setPassword(e.target.value)}
-        ></input>
-    <br>
-    </br>
-    <button onClick={()=>handleSubmit()}>Submit</button>
-    <br>
-    </br>
-    <button onClick={()=>handleButtonClick()}>redirect</button>
+            <section className="wrapper">
+                <div className="login">
+                    <h1>Login</h1>
+                    <div className="container">
+                        <label className="labelBlock">Username</label>
+                        <input
+                            onChange={(e) => setUserName(e.target.value)}
+                        ></input>
+
+                        <label className="labelBlock" >password</label>
+                        <input type='password'
+                            onChange={(e) => setPassword(e.target.value)}
+                        ></input>
+                    </div>
+                    <div className="button_container">
+                        <button className="button_login" onClick={() => handleSubmit()}>Submit</button>
+                        <button className="button_login" onClick={() => handleButtonClick()}>Register Now</button>
+                    </div>
+                </div>
+            </section>
+
         </>
     )
 }
