@@ -6,7 +6,6 @@ import JwtManager from '../utils/jwtManager';
 const initApp = async () => {
 
   await axiosInit();
-
   let currentUser = null;
   try {
     if (JwtManager.accessToken) {
@@ -17,7 +16,6 @@ const initApp = async () => {
   }
 
   const appStore = initStore(currentUser);
-
   return appStore;
 };
 export default initApp;

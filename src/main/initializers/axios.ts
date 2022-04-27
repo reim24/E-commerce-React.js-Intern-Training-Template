@@ -3,6 +3,7 @@ import JwtManager from '../utils/jwtManager';
 import eHttpResponse from '../assets/enums/eHttpResponse';
 import eNotificationType from '../assets/enums/eNotificationType';
 import { toast } from 'react-toastify';
+import { navigateTo } from '../store/stores/navigation/navigation.store';
 
 const handleResponseMessage = (message:string ,  notificationType: eNotificationType) =>{
   switch(notificationType){
