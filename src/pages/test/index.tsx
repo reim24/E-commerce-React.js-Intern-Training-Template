@@ -30,11 +30,12 @@ const TestPage: FC = () => {
                     <div className="container">
                         <label className="labelBlock">Username</label>
                         <input
+                            className='input'
                             onChange={(e) => setUserName(e.target.value)}
                         ></input>
 
                         <label className="labelBlock" >password</label>
-                        <input type='password'
+                        <input type='password' className='input'
                             onChange={(e) => setPassword(e.target.value)}
                         ></input>
                     </div>

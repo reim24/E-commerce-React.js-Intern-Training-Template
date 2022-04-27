@@ -41,37 +41,37 @@ export default function Register() {
                     <form className="container">
                         <label className="labelBlock">
                             firstName
-                            <input type='text' name="firstName" />
+                            <input className='input' type='text' name="firstName" />
                         </label>
 
                         <label className="labelBlock">
                             lastName
-                            <input name="lastName" type='text' />
+                            <input className='input' name="lastName" type='text' />
                         </label>
 
                         <label className="labelBlock">
                             email
-                            <input name="email" type='email' />
+                            <input className='input' name="email" type='email' />
                         </label>
 
                         <label className="labelBlock">
                             birthdate
-                            <input name="birthdate" type='text ' />
+                            <input className='input' name="birthdate" type='text ' />
                         </label>
 
                         <label className="labelBlock">
                             phone
-                            <input name="phone" type='number' />
+                            <input className='input' name="phone" type='number' />
                         </label>
 
                         <label className="labelBlock">
                             username
-                            <input name="username" type='text' />
+                            <input className='input' name="username" type='text' />
                         </label>
 
                         <label className="labelBlock">
                             password
-                            <input name="password" type='password' />
+                            <input className='input' name="password" type='password' />
                         </label>
 
                         <button className="button_login" onSubmit={(e) => {
