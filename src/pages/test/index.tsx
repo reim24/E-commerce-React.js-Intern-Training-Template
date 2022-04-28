@@ -12,6 +12,7 @@ const TestPage: FC = () => {
     const [password, setPassword] = useState(null)
 
     const dispatch = useDispatch();
+
     const handleSubmit = () => {
         dispatch(onLogin({ userName, password }));
     }

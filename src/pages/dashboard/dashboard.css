@@ -5,6 +5,11 @@
 
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 .dashboard_wrapper {
     display: grid;
     grid-template-rows: 1fr 1fr;

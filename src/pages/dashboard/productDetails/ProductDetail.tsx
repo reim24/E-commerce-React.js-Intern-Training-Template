@@ -1,18 +1,23 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
+import IProduct from "../../../main/interfaces/IProduct"
+import { addProduct, ICartProduct } from "../../../main/store/stores/cart/cart.store"
 import Header from "../Header"
 import './product.css'
 
+
 const ProductDetails = () => {
 
-    const [itemFromServer, setItemFromServer] = useState([])
-    const params = useParams()
+    const [product, setProduct] = useState<IProduct | null>(null);
+    const [quantity, setQuantity] = useState<number>(1);
 
+    const params = useParams()
 
     async function getProducFromServer() {
         let result = await (await axios.get(`/product/${params.id}`));
-        (setItemFromServer(result.data))
+        (setProduct(result.data))
     }
 
     useEffect(() => {
@@ -20,37 +25,41 @@ const ProductDetails = () => {
     }, [])
 
 
-    if (itemFromServer === null) return <h1>loading</h1>
+
+
+
+    const dispatch = useDispatch()
+
+    const handleOnClick = () => {
+        const prd: ICartProduct = { product, quantity };
+        dispatch(addProduct(prd));
+    };
+
+
+    if (product === null) return <h1>loading</h1>
     return (
         <section>
             <Header />
 
-            <main className="product_Section">
+            <div className="product_Section" >
 
                 <div className=" image_container">
-                    {/* @ts-ignore */}
-                    <img src={`data:image/png;base64,${itemFromServer?.base64Image}`} alt="" />
+                    <img src={`data:image/png;base64,${product?.base64Image}`} alt="" />
                 </div>
 
                 <div className='product_card'>
-
-                    {/* @ts-ignore */}
-
-                    <h2>{itemFromServer?.name}</h2>
+                    <h2>{product?.name}</h2>
                     <br />
-                    {/* @ts-ignore */}
-                    <h4> Price {itemFromServer?.price}$</h4>
+                    <h4> Price {product?.price}$</h4>
                     <br />
-                    {/* @ts-ignore */}
-                    <h3>{itemFromServer?.shortDescription}</h3>
+                    <h3>{product?.shortDescription}</h3>
                     <br />
-                    {/* @ts-ignore */}
-                    <h3>{itemFromServer?.longDescription}</h3>
+                    <h3>{product?.longDescription}</h3>
                     <br />
-                    <button>Add to cart</button>
+                    <button className="add_to_cart_btn" onClick={handleOnClick}>Add to cart</button>
                 </div>
 
-            </main>
+            </div>
 
         </section>
 

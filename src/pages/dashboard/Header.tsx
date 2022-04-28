@@ -27,7 +27,6 @@ const Header = () => {
                     </Link>
                 </ul>
             </nav>
-
             <nav className="nav_right">
                 <ul className="headerUl">
                     <li className="headerli">
