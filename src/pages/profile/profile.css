@@ -4,13 +4,11 @@
 }
 
 .sidebar {
-    position: sticky;
     top: 80px;
     flex: 0.2;
     border-radius: 10px;
     text-align: center;
     height: fit-content;
-    width: 80%;
     margin-left: 2rem;
     border: 1px solid lightgray;
     margin-top: 5rem;
@@ -18,21 +16,12 @@
 }
 
 
-
-.sidebar__topAvatar {
-    font-size: 50px;
-
-}
-
 .sidebar__top>h4 {
     color: gray;
     font-size: 12px;
     margin-top: 5px;
 }
 
-.sidebar__top>h2 {
-    font-size: 18px;
-}
 
 .sidebar__bottom {
     text-align: left;
@@ -43,38 +32,14 @@
 }
 
 
-.user_avatar {
-    width: 80px;
-    border-radius: 50%;
-}
-
-.logo_card {
-    width: fit-content;
-    margin-bottom: 30px;
-}
-
-.sidebar__bottom {
-    margin-top: 3rem;
-}
-
-.sidebar__bottom>p {
-    font-size: 14px;
-    padding-bottom: 10px;
-}
 
 
-.profile_main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 0.5fr));
-    align-items: center;
-    justify-items: center;
-    overflow: hidden;
-    margin-top: 0.5rem;
-}
+
+
 
 .profile_card {
     display: grid;
-    height: 300px;
+    height: fit-content;
     place-items: center;
     text-align: center;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);

@@ -4,9 +4,10 @@ import { ICartProduct, deleteProductById, changeProductQuantity, invalidateCart,
 import Header from "../dashboard/Header"
 import './cart.css'
 import IProduct from "../../main/interfaces/IProduct";
-import IBank from "../../main/interfaces/IBank"
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useGetUser from "../../main/hooks/useGetUser";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
 
@@ -15,8 +16,12 @@ const Cart = () => {
     const [bankInfo, setBankInfo] = useState([])
     const [selectedBank, SetSelectedBank] = useState([])
     const [show, setShow] = useState(false)
+    const user = useGetUser()
+    const navigate = useNavigate()
 
 
+    const productsInCart: ICartProduct[] = useSelector((state: RootState) => state.cart.products);
+    const totalValue: number = useSelector((state: RootState) => state.cart.totalValue);
 
     async function getBanks() {
 
@@ -29,10 +34,6 @@ const Cart = () => {
     }, [])
 
 
-    const productsInCart: ICartProduct[] = useSelector((state: RootState) => state.cart.products);
-    const totalValue: number = useSelector((state: RootState) => state.cart.totalValue);
-
-
     const handleDelte = (id: number) => {
         dispatch(deleteProductById(id));
     };
@@ -43,18 +44,41 @@ const Cart = () => {
         dispatch(changeProductQuantity(qty));
     };
 
-
     const hanleBanks = (e: any) => {
         const ChangeBank = [...bankInfo]
         const selectedBankAC = ChangeBank.find(bank => bank.code === e.target.value)
         SetSelectedBank(selectedBankAC)
     }
 
-    console.log(selectedBank)
 
+    const handlePayement = async (e: any) => {
+
+        const transactionData = {
+            //@ts-ignore
+            bankAccountId: selectedBank.id,
+            action: 1,
+            amount: totalValue,
+            description: `Payment of ${user?.username}`,
+            isActive: true
+        }
+
+        console.log(transactionData)
+
+        let result = await axios.post(`/banktransaction`, transactionData);
+        console.log(result)
+
+        if (result) {
+            alert("Your transaction was succesful")
+        }
+
+    }
 
     const handleCart = () => {
         dispatch(invalidateCart())
+    }
+
+    const handleOnClick = () => {
+        navigate('/')
     }
 
 
@@ -66,52 +90,45 @@ const Cart = () => {
                 <section className="left_section">
                     <div className="card_cart">
 
-                        <div className="cart_wrapper">
-                            <div className="title">
-                                <div className="row">
-                                    <div className="col">
-                                        <h4><b>Shopping Cart</b></h4>
-                                    </div>
+                        <div className="title">
+                            <h4>Shopping Cart</h4>
+                        </div>
+
+                        {productsInCart.map(item =>
+                            <div className="product_cart__">
+                                <button className="delete_btn"
+                                    onClick={() => handleDelte(item.product.id)}
+                                >X</button>
+                                <img src={`data:image/png;base64,${item.product.base64Image}`} alt="img" className="img_cart" />
+
+                                <div className="details_cart">
+                                    <p className="p_name">{item.product.name}</p>
+                                </div>
+
+                                <div className="quantity">
+                                    < select name="quantity" id="quantity_select" onChange={(e) => {
+
+                                        handleQuantity(e, item.product)
+                                    }}>
+                                        <option disabled selected > QTY </option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+
+                                <div className="price_cart">
+                                    <span className="span_price">{item.product.price}&euro;</span>
                                 </div>
                             </div>
+                        )}
 
-                            {productsInCart.map(item =>
-                                <div className="product_cart__">
-                                    <button className="delete_btn"
-                                        onClick={() => handleDelte(item.product.id)}
-                                    >X</button>
-                                    <img src={`data:image/png;base64,${item.product.base64Image}`} alt="img" className="img_cart" />
-
-                                    <div className="details_cart">
-                                        <p className="p_name">{item.product.name}</p>
-                                    </div>
-
-                                    <div className="quantity">
-                                        < select name="quantity" id="quantity_select" onChange={(e) => {
-
-                                            handleQuantity(e, item.product)
-                                        }}>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-
-                                    <div className="price_cart">
-                                        <span className="span_price">{item.product.price}&euro;</span>
-                                    </div>
-                                </div>
-                            )}
-
-                        </div>
-                        <span className="back-to-shop">Back to shop</span>
+                        <span onClick={handleOnClick} className="back-to-shop">Back to shop</span>
                     </div>
                 </section>
-
-
 
                 <section className="right_section">
                     <div className="checkout_section">
@@ -124,24 +141,28 @@ const Cart = () => {
                                 <div className="col">Total items</div>
                                 <div className="col text-right"> {productsInCart.length}</div>
                             </div>
-                            {/* <form> */}
+                            <br />
                             <p>SHIPPING</p>
-                            <select onChange={(e) => {
+                            <br />
+                            <select className="Bank_select" onChange={(e) => {
                                 hanleBanks(e)
                             }}>
+                                <option disabled selected > Select Bank Account </option>
                                 {bankInfo.map(bank =>
                                     < option className="text-muted" key={bank.id} value={bank.code} > {bank.code}</option>
                                 )}
                             </select>
-
-                            {/* </form> */}
                             <div className="row" >
                                 <div className="col">TOTAL PRICE</div>
                                 <div className="col text-right">&euro;{totalValue}</div>
-                            </div> <button className="btn" onClick={() => {
-
+                            </div>
+                            <form onSubmit={(e) => {
+                                e.preventDefault()
+                                handlePayement(e)
                                 handleCart()
-                            }}>CHECKOUT</button>
+                            }}>
+                                <button className="btn">CHECKOUT</button>
+                            </form>
                         </div>
                     </div>
                 </section>
