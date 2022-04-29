@@ -25,8 +25,8 @@ const DashboardPage: FC = () => {
     return (
         <>
             <section className="dashboard_wrapper">
-
                 <Header />
+
                 <main className="main_Section">
                     <div className='home__section'>
                         {

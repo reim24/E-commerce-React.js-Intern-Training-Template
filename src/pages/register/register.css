@@ -1,7 +1,12 @@
 .register {
     display: grid;
     display: block;
-    width: 200px;
+    width: 300px;
+    height: 530px;
+    box-shadow: 0 0 0.75rem crimson;
+    border-radius: 10px;
+    padding: 1rem;
+    justify-items: center;
 }
 
 .button_container {
@@ -10,25 +15,29 @@
     gap: 0.6rem;
 }
 
-.button_login {
-    border-radius: 5px;
-    border: 1px;
+.labelBlock_register {
+    display: grid;
+    justify-content: center;
 }
 
+.button__register {
+    width: 240px;
+    border-radius: 10px;
+    height: 25px;
+    border: 1px;
+    background: #146dac;
+    margin-top: 0.5rem;
+}
+
+
 .labelBlock {
+    font-weight: 300;
+    display: grid;
     display: block;
     text-align: center;
 }
 
-.register {
-    display: grid;
-    display: block;
-    width: 200px;
-    border: 1px solid rgb(168, 165, 165);
-    padding: 1rem;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-}
 
 .register h1 {
     text-align: center;
@@ -46,8 +55,16 @@
     cursor: pointer;
 }
 
-.input {
-    border-radius: 5px;
+
+.info:hover {
+    color: crimson;
+    /* transition: 2s; */
+}
+
+.inputRegister {
+    padding: 0.5rem;
+    width: 240px;
+    border-radius: 10px;
+    height: 25px;
     border: 0.1px solid rgb(168, 165, 165);
-    padding-left: 0.2rem;
 }

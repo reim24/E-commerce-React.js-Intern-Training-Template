@@ -41,34 +41,35 @@ const Register = () => {
 
                     <label className="labelBlock">
                         First Name:
-                        <input className='input' type="text" name="firstName" />
+                        <input className='inputRegister' type="text" name="firstName" />
                     </label>
                     <label className="labelBlock">
                         Last Name:
-                        <input className='input' type="text" name="lastName" />
+                        <input className='inputRegister' type="text" name="lastName" />
                     </label>
                     <label className="labelBlock">
                         Email:
-                        <input className='input' type="email" name="email" />
+                        <input className='inputRegister' type="email" name="email" />
                     </label>
                     <label className="labelBlock">
                         Birthday:
-                        <input className='input' type="number" name="birthdate" />
+                        <input className='inputRegister' type="number" name="birthdate" />
                     </label>
                     <label className="labelBlock">
                         Phone:
-                        <input className='input' type="text" name="phone" />
+                        <input className='inputRegister' type="text" name="phone" />
                     </label>
                     <label className="labelBlock">
                         Username:
-                        <input className='input' type="text" name="username" />
+                        <input className='inputRegister' type="text" name="username" />
                     </label>
                     <label className="labelBlock">
                         Password:
-                        <input className='input' type="password" name="password" />
+                        <input className='inputRegister' type="password" name="password" />
                     </label>
-                    <input className='input' type="submit" value="Register" />
-
+                    <label className="labelBlock_register">
+                        <input className='button__register' type="submit" value="Register" />
+                    </label>
                 </form>
                 <p onClick={handleClick} className="info">Go to login page</p>
             </div>

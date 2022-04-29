@@ -1,15 +1,37 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../main/store/redux/rootState";
-import { ICartProduct } from "../../main/store/stores/cart/cart.store";
+import { ICartProduct, deleteProductById, changeProductQuantity, invalidateCart, IQuantityPayload } from "../../main/store/stores/cart/cart.store";
 import Header from "../dashboard/Header"
 import './cart.css'
+import IProduct from "../../main/interfaces/IProduct";
 
 const Cart = () => {
 
+    const dispatch = useDispatch()
+
 
     const productsInCart: ICartProduct[] = useSelector((state: RootState) => state.cart.products);
-
     const totalValue: number = useSelector((state: RootState) => state.cart.totalValue);
+
+
+    const handleDelte = (id: number) => {
+        dispatch(deleteProductById(id));
+    };
+
+
+    const handleQuantity = (e: any, product: IProduct) => {
+        const qty: IQuantityPayload = { productId: product.id, quantity: Number(e.target.value) }
+        dispatch(changeProductQuantity(qty));
+    };
+
+
+
+    const handleCart = () => {
+        dispatch(invalidateCart())
+    }
+
+
+
 
     console.log(productsInCart)
     return (
@@ -26,13 +48,14 @@ const Cart = () => {
                                     <div className="col">
                                         <h4><b>Shopping Cart</b></h4>
                                     </div>
-                                    <div className="col align-self-center text-right text-muted">3 items</div>
                                 </div>
                             </div>
 
                             {productsInCart.map(item =>
                                 <div className="product_cart__">
-                                    <button className="delete_btn">X</button>
+                                    <button className="delete_btn"
+                                        onClick={() => handleDelte(item.product.id)}
+                                    >X</button>
                                     <img src={`data:image/png;base64,${item.product.base64Image}`} alt="img" className="img_cart" />
 
                                     <div className="details_cart">
@@ -40,15 +63,21 @@ const Cart = () => {
                                     </div>
 
                                     <div className="quantity">
-                                        < select name="quantity" id="quantity_select">
+                                        < select name="quantity" id="quantity_select" onChange={(e) => {
+
+                                            handleQuantity(e, item.product)
+                                        }}>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
                                         </select>
                                     </div>
 
                                     <div className="price_cart">
-                                        <span className="span_price">price</span>
+                                        <span className="span_price">{item.product.price}&euro;</span>
                                     </div>
                                 </div>
                             )}
@@ -69,7 +98,7 @@ const Cart = () => {
                             <hr />
                             <div className="row">
                                 <div className="col">Total items</div>
-                                <div className="col text-right">&euro; {totalValue}</div>
+                                <div className="col text-right"> {productsInCart.length}</div>
                             </div>
                             <form>
                                 <p>SHIPPING</p>
@@ -83,7 +112,9 @@ const Cart = () => {
                             <div className="row" >
                                 <div className="col">TOTAL PRICE</div>
                                 <div className="col text-right">&euro;{totalValue}</div>
-                            </div> <button className="btn">CHECKOUT</button>
+                            </div> <button className="btn" onClick={() => {
+                                handleCart()
+                            }}>CHECKOUT</button>
                         </div>
                     </div>
                 </section>

@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import onLogout from "../../main/store/stores/user/login.store.on-logout"
 
-
 const Header = () => {
 
     const dispatch = useDispatch()
@@ -15,11 +14,6 @@ const Header = () => {
         <header className="header">
             <nav className="nav_left">
                 <ul className="headerUl">
-                    <Link to={`/cart`}>
-                        <li className="headerli">
-                            cart
-                        </li>
-                    </Link>
                     <Link to={`/`}>
                         <li className="headerli">
                             Home
@@ -29,8 +23,13 @@ const Header = () => {
             </nav>
             <nav className="nav_right">
                 <ul className="headerUl">
+                    <Link to={`/cart`}>
+                        <li className="headerli">
+                            cart
+                        </li>
+                    </Link>
                     <li className="headerli">
-                        <button onClick={handleSubmit}> signout</button>
+                        <button className="signOut" onClick={handleSubmit}> Sign Out</button>
                     </li>
                 </ul>
             </nav>

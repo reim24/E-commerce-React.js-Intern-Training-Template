@@ -41,8 +41,8 @@ const TestPage: FC = () => {
                         ></input>
                     </div>
                     <div className="button_container">
-                        <button className="button_login" onClick={() => handleSubmit()}>Submit</button>
-                        <button className="button_login" onClick={() => handleButtonClick()}>Register Now</button>
+                        <button className="button__login" onClick={() => handleSubmit()}>Submit</button>
+                        <button className="button__login" onClick={() => handleButtonClick()}>Register Now</button>
                     </div>
                 </div>
             </section>

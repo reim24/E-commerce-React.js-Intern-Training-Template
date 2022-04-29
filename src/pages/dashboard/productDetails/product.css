@@ -17,21 +17,27 @@
 
 
 .image_container {
+    margin-top: 5rem;
     padding: 1rem;
     display: grid;
+
 }
 
 
 .product_card {
+    margin-top: 5rem;
     padding: 1rem;
+
 }
 
 .product_card__info {
+    margin-top: 5rem;
     margin-top: -9px;
     border-radius: 10px;
     padding: 20px;
     padding-top: 20px;
     border: 1;
+
 }
 
 
@@ -41,6 +47,8 @@
     align-items: center;
     min-width: 250px;
     padding-left: 0.2rem;
+    margin-top: 5rem;
+
 }
 
 .product_title_Price>h2 {
@@ -54,4 +62,13 @@
     font-weight: 300;
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+.add_to_cart_btn {
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: white;
+    background-color: #146dac;
+    border-radius: 10px;
 }

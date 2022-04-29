@@ -14,6 +14,8 @@ const ProductDetails = () => {
     const [quantity, setQuantity] = useState<number>(1);
 
     const params = useParams()
+    const dispatch = useDispatch()
+
 
     async function getProducFromServer() {
         let result = await (await axios.get(`/product/${params.id}`));
@@ -24,11 +26,6 @@ const ProductDetails = () => {
         getProducFromServer()
     }, [])
 
-
-
-
-
-    const dispatch = useDispatch()
 
     const handleOnClick = () => {
         const prd: ICartProduct = { product, quantity };
