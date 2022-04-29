@@ -28,6 +28,11 @@ const Header = () => {
                             cart
                         </li>
                     </Link>
+                    <Link to={`/profile`}>
+                        <li className="headerli">
+                            profile
+                        </li>
+                    </Link>
                     <li className="headerli">
                         <button className="signOut" onClick={handleSubmit}> Sign Out</button>
                     </li>

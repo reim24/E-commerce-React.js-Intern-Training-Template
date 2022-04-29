@@ -4,10 +4,29 @@ import { ICartProduct, deleteProductById, changeProductQuantity, invalidateCart,
 import Header from "../dashboard/Header"
 import './cart.css'
 import IProduct from "../../main/interfaces/IProduct";
+import IBank from "../../main/interfaces/IBank"
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Cart = () => {
 
     const dispatch = useDispatch()
+
+    const [bankInfo, setBankInfo] = useState([])
+    const [selectedBank, SetSelectedBank] = useState([])
+    const [show, setShow] = useState(false)
+
+
+
+    async function getBanks() {
+
+        const result = (await axios.get(`http://reimusabelli-001-site1.itempurl.com/api/bankaccount/get-all?PageNumber=1&PageSize=10`)).data
+        setBankInfo(result.data)
+    }
+
+    useEffect(() => {
+        getBanks()
+    }, [])
 
 
     const productsInCart: ICartProduct[] = useSelector((state: RootState) => state.cart.products);
@@ -25,15 +44,20 @@ const Cart = () => {
     };
 
 
+    const hanleBanks = (e: any) => {
+        const ChangeBank = [...bankInfo]
+        const selectedBankAC = ChangeBank.find(bank => bank.code === e.target.value)
+        SetSelectedBank(selectedBankAC)
+    }
+
+    console.log(selectedBank)
+
 
     const handleCart = () => {
         dispatch(invalidateCart())
     }
 
 
-
-
-    console.log(productsInCart)
     return (
         <section>
             <Header />
@@ -100,19 +124,22 @@ const Cart = () => {
                                 <div className="col">Total items</div>
                                 <div className="col text-right"> {productsInCart.length}</div>
                             </div>
-                            <form>
-                                <p>SHIPPING</p>
-                                <select>
-                                    <option className="text-muted">Bank 1- Price</option>
-                                    <option className="text-muted">Bank 2- Price</option>
-                                    <option className="text-muted">Bank 3- Price</option>
-                                </select>
+                            {/* <form> */}
+                            <p>SHIPPING</p>
+                            <select onChange={(e) => {
+                                hanleBanks(e)
+                            }}>
+                                {bankInfo.map(bank =>
+                                    < option className="text-muted" key={bank.id} value={bank.code} > {bank.code}</option>
+                                )}
+                            </select>
 
-                            </form>
+                            {/* </form> */}
                             <div className="row" >
                                 <div className="col">TOTAL PRICE</div>
                                 <div className="col text-right">&euro;{totalValue}</div>
                             </div> <button className="btn" onClick={() => {
+
                                 handleCart()
                             }}>CHECKOUT</button>
                         </div>
