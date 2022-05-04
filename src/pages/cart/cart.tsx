@@ -10,6 +10,9 @@ import useGetUser from "../../main/hooks/useGetUser";
 import { useNavigate } from "react-router-dom";
 import IBank from "../../main/interfaces/IBank";
 import Footer from "../dashboard/Footer";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Cart = () => {
 
@@ -22,6 +25,8 @@ const Cart = () => {
 
     const productsInCart: ICartProduct[] = useSelector((state: RootState) => state.cart.products);
     const totalValue: number = useSelector((state: RootState) => state.cart.totalValue);
+    const notify = () => toast("Payement Accepted")
+
 
     async function getBanks() {
         const result = (await axios.get(`http://reimusabelli-001-site1.itempurl.com/api/bankaccount/get-all?PageNumber=1&PageSize=10`)).data
@@ -61,10 +66,8 @@ const Cart = () => {
             isActive: true
         }
 
-        let result = await axios.post(`/banktransaction`, transactionData);
-        if (result) {
-            alert("DONE")
-        }
+        await axios.post(`/banktransaction`, transactionData);
+
 
     }
 
@@ -155,6 +158,7 @@ const Cart = () => {
                                 e.preventDefault()
                                 handlePayement(e)
                                 handleCart()
+                                notify()
                             }}>
                                 <button className="btn">CHECKOUT</button>
                             </form>
