@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import useGetUser from "../../main/hooks/useGetUser"
 import Header from "../dashboard/Header"
 import './profile.css'
@@ -47,6 +47,7 @@ const Profile = () => {
     }, [])
 
 
+
     return <section className="profile_wrapper">
         <Header />
 
@@ -57,7 +58,7 @@ const Profile = () => {
             </div>
 
             <div className="sidebar__bottom">
-                <p>Transactions </p>
+                <p>Transactions  {selectedBank ? <p> Balance Left {selectedBank.balance} &euro;</p> : 'Select a bank'}</p>
 
                 <select onChange={(e) => {
 

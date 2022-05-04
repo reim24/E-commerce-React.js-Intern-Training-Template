@@ -8,23 +8,21 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useGetUser from "../../main/hooks/useGetUser";
 import { useNavigate } from "react-router-dom";
+import IBank from "../../main/interfaces/IBank";
 
 const Cart = () => {
 
-    const dispatch = useDispatch()
-
     const [bankInfo, setBankInfo] = useState([])
-    const [selectedBank, SetSelectedBank] = useState([])
-    const [show, setShow] = useState(false)
+    const [selectedBank, SetSelectedBank] = useState<IBank | null>(null)
+
     const user = useGetUser()
     const navigate = useNavigate()
-
+    const dispatch = useDispatch()
 
     const productsInCart: ICartProduct[] = useSelector((state: RootState) => state.cart.products);
     const totalValue: number = useSelector((state: RootState) => state.cart.totalValue);
 
     async function getBanks() {
-
         const result = (await axios.get(`http://reimusabelli-001-site1.itempurl.com/api/bankaccount/get-all?PageNumber=1&PageSize=10`)).data
         setBankInfo(result.data)
     }
@@ -142,7 +140,7 @@ const Cart = () => {
                                 <div className="col text-right"> {productsInCart.length}</div>
                             </div>
                             <br />
-                            <p>SHIPPING</p>
+                            <p> {selectedBank ? <p> Balance Left {selectedBank.balance} &euro;</p> : 'Select a bank'}</p>
                             <br />
                             <select className="Bank_select" onChange={(e) => {
                                 hanleBanks(e)
