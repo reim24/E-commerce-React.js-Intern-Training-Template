@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../main/store/redux/rootState";
-import { ICartProduct, deleteProductById, changeProductQuantity, invalidateCart, IQuantityPayload } from "../../main/store/stores/cart/cart.store";
+import { ICartProduct, deleteProductById, changeProductQuantity, invalidateCart, IQuantityPayload, getBankAcc } from "../../main/store/stores/cart/cart.store";
 import Header from "../dashboard/Header"
 import './cart.css'
 import IProduct from "../../main/interfaces/IProduct";

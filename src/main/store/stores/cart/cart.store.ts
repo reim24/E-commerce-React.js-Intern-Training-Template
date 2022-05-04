@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import IBank from '../../../interfaces/IBank';
 import IProduct from '../../../interfaces/IProduct';
 
 export interface ICartStore {
     products: ICartProduct[]
     totalValue: number
+    BankAccounts: IBank[]
 }
 
 export interface ICartProduct {
@@ -22,7 +24,7 @@ const calculateTotalPrice = (storeState: ICartStore) => {
     return totPrice;
 }
 
-const initValue: ICartStore = { products: [], totalValue: 0 }
+const initValue: ICartStore = { products: [], totalValue: 0, BankAccounts: [] }
 const Cart = createSlice({
     name: 'cart',
     initialState: initValue,
@@ -47,10 +49,15 @@ const Cart = createSlice({
         },
         invalidateCart() {
             return initValue;
+        },
+        getBankAcc(state, action: PayloadAction<IBank[]>) {
+            state.BankAccounts = action.payload
         }
-    },
+
+    }
+
 });
 
 export default Cart;
 
-export const { addProduct, deleteProductById, changeProductQuantity, invalidateCart } = Cart.actions;
+export const { addProduct, deleteProductById, changeProductQuantity, invalidateCart, getBankAcc } = Cart.actions;

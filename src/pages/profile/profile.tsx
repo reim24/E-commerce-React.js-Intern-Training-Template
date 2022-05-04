@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import useGetUser from "../../main/hooks/useGetUser"
 import Header from "../dashboard/Header"
 import './profile.css'
@@ -28,23 +28,23 @@ const Profile = () => {
     }
 
 
-    async function getTransactions() {
-        let result = (await axios.get(`bankaccount/${selectedBank?.id}/transactions?PageNumber=1&PageSize=10`)).data;
-        setTransactions(result.data)
-    }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let result = (await axios.get(`bankaccount/${selectedBank?.id}/transactions?PageNumber=1&PageSize=10`)).data;
+                setTransactions(result.data)
+            } catch (err) {
+                console.log(err);
+            }
+        };
 
+        fetchData();
+    }, [selectedBank]);
 
 
     useEffect(() => {
         getBanks()
     }, [])
-
-
-    useEffect(() => {
-        getTransactions()
-    }, [getTransactions])
-
-
 
 
     return <section className="profile_wrapper">
@@ -57,7 +57,7 @@ const Profile = () => {
             </div>
 
             <div className="sidebar__bottom">
-                <p>Transactions</p>
+                <p>Transactions </p>
 
                 <select onChange={(e) => {
 
@@ -65,7 +65,7 @@ const Profile = () => {
                 }}>
                     <option disabled selected > QTY </option>
                     {bankInfo.map(bank =>
-                        < option className="text-muted" key={bank.id} value={bank.code} > {bank.code}</option>
+                        < option className="text-muted" key={bank.id} defaultValue={bank.code} > {bank.code}</option>
                     )}
                 </select>
 
