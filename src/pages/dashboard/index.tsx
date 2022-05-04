@@ -3,6 +3,8 @@ import { FC, useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import './dashboard.css'
 import Header from "../dashboard/Header"
+import Footer from "../dashboard/Footer"
+
 
 
 const DashboardPage: FC = () => {
@@ -50,6 +52,7 @@ const DashboardPage: FC = () => {
 
             </section>
 
+            <Footer />
         </>
 
     )

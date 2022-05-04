@@ -33,10 +33,6 @@
 
 
 
-
-
-
-
 .profile_card {
     display: grid;
     height: fit-content;
@@ -44,6 +40,17 @@
     text-align: center;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
     border: 1px solid lightgray;
+    background-color: white;
+}
+
+.card-body {
+    display: grid;
+    gap: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+    border: 1px solid lightgray;
+    width: 25rem;
+    margin: 0.5rem;
+    border-radius: 10px;
     background-color: white;
 }
 

@@ -3,13 +3,14 @@ import { useEffect, useState } from "react"
 import useGetUser from "../../main/hooks/useGetUser"
 import Header from "../dashboard/Header"
 import './profile.css'
+import IBank from '../../main/interfaces/IBank'
 
 
 const Profile = () => {
 
     const [transactions, setTransactions] = useState([])
     const [bankInfo, setBankInfo] = useState([])
-    const [selectedBank, SetSelectedBank] = useState([])
+    const [selectedBank, SetSelectedBank] = useState<IBank | null>(null)
 
     const user = useGetUser()
 
@@ -20,18 +21,6 @@ const Profile = () => {
         setBankInfo(result.data)
     }
 
-    async function getTransactions() {
-        //@ts-ignore
-        let result = await (await axios.get(`bankaccount/${selectedBank?.id}/transactions?PageNumber=1&PageSize=10`)).data;
-        setTransactions(result.data)
-    }
-
-    useEffect(() => {
-        getTransactions()
-        getBanks()
-    }, [getTransactions])
-
-
     const handleBanks = (e: any) => {
         const ChangeBank = [...bankInfo]
         const selectedBankAC = ChangeBank.find(bank => bank.code === e.target.value)
@@ -39,8 +28,23 @@ const Profile = () => {
     }
 
 
+    async function getTransactions() {
+        let result = (await axios.get(`bankaccount/${selectedBank?.id}/transactions?PageNumber=1&PageSize=10`)).data;
+        setTransactions(result.data)
+    }
 
-    console.log(transactions)
+
+
+    useEffect(() => {
+        getBanks()
+    }, [])
+
+
+    useEffect(() => {
+        getTransactions()
+    }, [getTransactions])
+
+
 
 
     return <section className="profile_wrapper">
@@ -71,9 +75,9 @@ const Profile = () => {
                             <div className="profile_card">
                                 {transactions.map(item =>
                                     <div className="card-body" key={item.id}>
-                                        <p className="user_proffesion">{item.action}</p>
-                                        <p className="user_proffesion">{item.amount}</p>
-                                        <p className="user_proffesion">{item.description}</p>
+                                        <br />
+                                        <p className="user_proffesion">{item.action}  {item.amount}$</p>
+                                        <p className="user_proffesion"> {item.description}</p>
                                         <p className="User_location">{item.dateCreated}</p>
                                     </div>
                                 )}

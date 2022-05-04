@@ -12,9 +12,8 @@ a {
 
 .dashboard_wrapper {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    width: 100vw;
-    height: 100vh;
+    grid-template-rows: 1fr;
+    height: fit-content;
     gap: 1rem;
 }
 
@@ -28,6 +27,11 @@ a {
     justify-content: center;
     background-color: rgba(220, 20, 60, 0.801);
     position: fixed;
+}
+
+.footer {
+    display: grid;
+    height: 70px;
 }
 
 
@@ -67,7 +71,6 @@ a {
     display: grid;
     padding: 1rem;
     width: 100vw;
-    height: 100vh;
     gap: 1rem;
     margin-top: 5rem;
 }
