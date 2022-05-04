@@ -25,7 +25,8 @@ a {
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background-color: rgba(220, 20, 60, 0.801);
+    background-color: #0095c7da;
+    backdrop-filter: blur(2px);
     position: fixed;
 }
 
@@ -86,7 +87,6 @@ a {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
-    transition: transform 100ms ease-in;
     cursor: pointer;
     width: 20rem;
     height: 33rem;
@@ -94,7 +94,7 @@ a {
 }
 
 .card:hover {
-    transform: scale(1.07);
+    /* transform: scale(1).07; */
 }
 
 .signOut {

@@ -3,7 +3,7 @@
     display: block;
     width: 300px;
     height: 530px;
-    box-shadow: 0 0 0.75rem crimson;
+    box-shadow: 0 0 0.75rem #0095c7da;
     border-radius: 10px;
     padding: 1rem;
     justify-items: center;
