@@ -1,18 +1,16 @@
 .profile_wrapper {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    overflow: hidden;
+    justify-items: center;
 }
 
 .sidebar {
     top: 80px;
-    flex: 0.2;
     border-radius: 10px;
     text-align: center;
-    height: fit-content;
-    margin-left: 2rem;
     border: 1px solid lightgray;
     margin-top: 5rem;
-
+    width: 90%;
 }
 
 
@@ -35,7 +33,7 @@
 
 .profile_card {
     display: grid;
-    height: fit-content;
+    /* height: fit-content; */
     place-items: center;
     text-align: center;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);

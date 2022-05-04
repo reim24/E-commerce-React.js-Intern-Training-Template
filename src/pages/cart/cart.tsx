@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import useGetUser from "../../main/hooks/useGetUser";
 import { useNavigate } from "react-router-dom";
 import IBank from "../../main/interfaces/IBank";
+import Footer from "../dashboard/Footer";
 
 const Cart = () => {
 
@@ -119,7 +120,7 @@ const Cart = () => {
                                 </div>
 
                                 <div className="price_cart">
-                                    <span className="span_price">{item.product.price}&euro;</span>
+                                    <span className="span_price">{totalValue}&euro;</span>
                                 </div>
                             </div>
                         )}
@@ -165,6 +166,8 @@ const Cart = () => {
                     </div>
                 </section>
             </section>
+
+            <Footer />
 
         </section >
     )
