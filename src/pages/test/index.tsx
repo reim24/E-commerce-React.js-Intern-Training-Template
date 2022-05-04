@@ -1,7 +1,6 @@
 import { FC, useState } from "react"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { navigateTo } from "../../main/store/stores/navigation/navigation.store";
 import onLogin from "../../main/store/stores/user/login.store.on-login"
 import './test.css'
 
@@ -10,14 +9,14 @@ const TestPage: FC = () => {
 
     const [userName, setUserName] = useState(null)
     const [password, setPassword] = useState(null)
-
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
 
     const handleSubmit = () => {
         dispatch(onLogin({ userName, password }));
     }
 
-    const navigate = useNavigate();
 
     const handleButtonClick = () => {
         navigate("/Register", { replace: true });

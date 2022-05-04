@@ -11,9 +11,7 @@ const Profile = () => {
     const [transactions, setTransactions] = useState([])
     const [bankInfo, setBankInfo] = useState([])
     const [selectedBank, SetSelectedBank] = useState<IBank | null>(null)
-
     const user = useGetUser()
-
 
     async function getBanks() {
 
@@ -26,7 +24,6 @@ const Profile = () => {
         const selectedBankAC = ChangeBank.find(bank => bank.code === e.target.value)
         SetSelectedBank(selectedBankAC)
     }
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -45,7 +42,6 @@ const Profile = () => {
     useEffect(() => {
         getBanks()
     }, [])
-
 
 
     return <section className="profile_wrapper">

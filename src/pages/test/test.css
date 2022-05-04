@@ -6,8 +6,6 @@
     height: 100vh;
 }
 
-
-
 .login {
     display: grid;
     display: block;
@@ -17,8 +15,6 @@
     border-radius: 10px;
     padding: 1rem;
 }
-
-
 
 .login h1 {
     font-weight: 300;

@@ -48,7 +48,6 @@
 }
 
 
-
 .product_cart__ {
     margin-bottom: 0.5rem;
     display: grid;
@@ -93,8 +92,6 @@
 
 }
 
-
-
 .summary {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -133,8 +130,6 @@ form {
     padding: 2vh 0
 }
 
-
-
 select {
     border: 1px solid rgba(0, 0, 0, 0.137);
     padding: 1.5vh 1vh;
@@ -143,8 +138,6 @@ select {
     width: 100%;
     background-color: rgb(247, 247, 247)
 }
-
-
 
 
 

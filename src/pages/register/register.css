@@ -29,15 +29,12 @@
     margin-top: 0.5rem;
 }
 
-
 .labelBlock {
     font-weight: 300;
     display: grid;
     display: block;
     text-align: center;
 }
-
-
 
 .register h1 {
     text-align: center;
@@ -58,7 +55,6 @@
 
 .info:hover {
     color: crimson;
-    /* transition: 2s; */
 }
 
 .inputRegister {

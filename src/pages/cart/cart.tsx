@@ -61,13 +61,9 @@ const Cart = () => {
             isActive: true
         }
 
-        console.log(transactionData)
-
         let result = await axios.post(`/banktransaction`, transactionData);
-        console.log(result)
-
         if (result) {
-            alert("Your transaction was succesful")
+            alert("DONE")
         }
 
     }
