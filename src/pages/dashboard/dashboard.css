@@ -28,6 +28,7 @@ a {
     background-color: #1976d2da;
     backdrop-filter: blur(2px);
     position: fixed;
+
 }
 
 .footer {
@@ -38,10 +39,23 @@ a {
 
 .nav_left {
     display: grid;
-    display: inline-block;
+    grid-template-columns: 0.1fr 1fr;
     margin: 0.1rem;
     padding: 0.5rem;
+    justify-items: center;
+}
 
+.search_bar {
+    align-items: center;
+    border-width: 0px;
+    border: none;
+    outline: none;
+    width: 20rem;
+    height: 1.6rem;
+    border-radius: 7px;
+    backdrop-filter: blur(1px);
+    background-color: rgba(255, 255, 255, 0.712);
+    padding: 0.5rem;
 }
 
 
@@ -57,6 +71,8 @@ a {
 .headerUl {
     list-style: none;
 }
+
+
 
 
 .headerli {

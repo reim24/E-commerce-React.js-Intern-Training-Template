@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import onLogout from "../../main/store/stores/user/login.store.on-logout"
 import Button from '@mui/material/Button';
 
-const Header = () => {
+const Header = ({ setSearch }: any) => {
 
     const dispatch = useDispatch()
 
@@ -16,10 +16,17 @@ const Header = () => {
             <nav className="nav_left">
                 <ul className="headerUl">
                     <Link to={`/`}>
-                        <li className="headerli">
+                        <li className="headerli_left">
                             Home
                         </li>
                     </Link>
+                </ul>
+                <ul className="headerUl">
+                    <li className="headerli">
+                        <input className="search_bar" type="search" placeholder="Search..." name="search" onChange={e => {
+                            setSearch(e.target.value)
+                        }} />
+                    </li>
                 </ul>
             </nav>
             <nav className="nav_right">
