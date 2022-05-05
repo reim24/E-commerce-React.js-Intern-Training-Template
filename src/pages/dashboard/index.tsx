@@ -1,6 +1,6 @@
 import axios from "axios"
 import { FC, useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import './dashboard.css'
 import Header from "../dashboard/Header"
 import Footer from "../dashboard/Footer"
@@ -60,6 +60,3 @@ const DashboardPage: FC = () => {
 
 export default DashboardPage
 
-function dispatch(arg0: any) {
-    throw new Error("Function not implemented.")
-}
