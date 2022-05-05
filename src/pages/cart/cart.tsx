@@ -25,7 +25,7 @@ const Cart = () => {
 
     const productsInCart: ICartProduct[] = useSelector((state: RootState) => state.cart.products);
     const totalValue: number = useSelector((state: RootState) => state.cart.totalValue);
-    const notify = () => toast.success("Payement Accepted")
+    const notify = () => toast.success("Payement Accepted", { autoClose: 1000 })
 
 
     async function getBanks() {
