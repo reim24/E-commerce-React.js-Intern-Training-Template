@@ -18,6 +18,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import useGetUser from "../../main/hooks/useGetUser";
 
 
 const TestPage: FC = () => {
@@ -28,14 +29,12 @@ const TestPage: FC = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const notify = () => toast("Welcome")
+    const notify = () => toast.success("Welcome")
 
 
     const handleSubmit = () => {
         dispatch(onLogin({ userName, password }));
     }
-
-
 
     const handleButtonClick = () => {
         navigate("/Register", { replace: true });

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import onLogout from "../../main/store/stores/user/login.store.on-logout"
+import Button from '@mui/material/Button';
 
 const Header = () => {
 
@@ -34,7 +35,10 @@ const Header = () => {
                         </li>
                     </Link>
                     <li className="headerli">
-                        <button className="signOut" onClick={handleSubmit}> Sign Out</button>
+                        <Button className="primary" color="secondary" variant="outlined" onClick={handleSubmit} sx={{
+                            color: "white",
+                            borderColor: 'white'
+                        }}>Sign Out</Button>
                     </li>
                 </ul>
             </nav>

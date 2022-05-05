@@ -98,12 +98,8 @@ a {
 }
 
 .signOut {
-    padding: 0.3rem;
-    background: none;
-    border: none;
     color: white;
-    background-color: #146dac;
-    border-radius: 10px;
+    background-color: white;
 }
 
 .card>img {
