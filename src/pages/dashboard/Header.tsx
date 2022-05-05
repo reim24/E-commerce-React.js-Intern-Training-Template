@@ -16,7 +16,7 @@ const Header = ({ setSearch }: any) => {
             <nav className="nav_left">
                 <ul className="headerUl">
                     <Link to={`/`}>
-                        <li className="headerli_left">
+                        <li className="headerli">
                             Home
                         </li>
                     </Link>
