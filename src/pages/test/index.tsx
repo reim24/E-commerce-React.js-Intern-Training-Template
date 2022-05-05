@@ -28,7 +28,7 @@ const TestPage: FC = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const notify = () => toast.success("Welcome", { autoClose: 15000 })
+    const notify = () => toast.success("Welcome", { autoClose: 1000 })
 
 
     const handleSubmit = () => {
