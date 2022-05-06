@@ -44,7 +44,6 @@ const Register = () => {
             birthdate,
             phone,
             username,
-
             password
         }
         dispatch(onRegister(data))
