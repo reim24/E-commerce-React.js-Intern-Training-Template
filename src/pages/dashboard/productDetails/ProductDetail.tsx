@@ -47,11 +47,11 @@ const ProductDetails = () => {
                 <div className='product_card'>
                     <h2>{product?.name}</h2>
                     <br />
-                    <h4> Price {product?.price}$</h4>
+                    <p> Price {product?.price}$</p>
                     <br />
-                    <h3>{product?.shortDescription}</h3>
+                    <p>{product?.shortDescription}</p>
                     <br />
-                    <h3>{product?.longDescription}</h3>
+                    <p>{product?.longDescription}</p>
                     <br />
                     <button className="add_to_cart_btn" onClick={handleOnClick}>Add to cart</button>
                 </div>
