@@ -51,11 +51,13 @@ a {
     border: none;
     outline: none;
     width: 20rem;
-    height: 1.6rem;
-    border-radius: 7px;
+    height: 1.8rem;
+    border-radius: 10px;
     backdrop-filter: blur(1px);
     background-color: rgba(255, 255, 255, 0.712);
     padding: 0.5rem;
+    box-shadow: 0px 10px 18px -9px rgb(0, 0, 0);
+
 }
 
 
@@ -102,7 +104,7 @@ a {
 .card {
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 18px -9px rgb(0, 0, 0);
     cursor: pointer;
     width: 20rem;
     height: 33rem;

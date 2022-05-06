@@ -79,7 +79,6 @@ const Cart = () => {
         navigate('/')
     }
 
-
     return (
         <section>
             <Header />
@@ -119,11 +118,10 @@ const Cart = () => {
                                 </div>
 
                                 <div className="price_cart">
-                                    <span className="span_price">{totalValue}&euro;</span>
+                                    <span className="span_price">{item.product.price * item.quantity}&euro;</span>
                                 </div>
                             </div>
                         )}
-
                         <span onClick={handleOnClick} className="back-to-shop">Back to shop</span>
                     </div>
                 </section>
