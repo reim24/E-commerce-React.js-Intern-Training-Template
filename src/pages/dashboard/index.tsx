@@ -4,13 +4,15 @@ import { Link } from "react-router-dom"
 import './dashboard.css'
 import Header from "../dashboard/Header"
 import Footer from "../dashboard/Footer"
-
+import { useSelector } from "react-redux"
+import { RootState } from "../../main/store/redux/rootState"
 
 
 const DashboardPage: FC = () => {
 
     const [dataFromServer, setDataFromServer] = useState([])
-    const [search, setSearch] = useState('')
+
+    const search = useSelector((state: RootState) => state.search);
 
 
     async function getDataFroServer() {
@@ -24,32 +26,26 @@ const DashboardPage: FC = () => {
 
 
     function filterProducts() {
-        let filterProducts = dataFromServer
+        let copyOfDdata = [...dataFromServer]
 
-        filterProducts = filterProducts.filter(filterProduct => {
+        copyOfDdata = copyOfDdata.filter(product => {
             // @ts-ignore
 
-            return filterProduct.id !== dataFromServer.id
+            return product.name.toUpperCase().includes(search.toUpperCase())
         })
-        return filterProducts
+        return copyOfDdata
     }
-
-    const searcheditems = filterProducts().filter(product =>
-        product.name.toUpperCase().includes(search.toUpperCase())
-    )
-
-
 
     if (dataFromServer === null) return <h1>loading</h1>
     return (
         <>
             <section className="dashboard_wrapper">
-                <Header setSearch={setSearch} />
+                <Header />
 
                 <main className="main_Section">
                     <div className='home__section'>
                         {
-                            searcheditems.map(item =>
+                            filterProducts().map(item =>
                                 <Link to={`/${item.id}`} key={item.id}>
                                     <div className='card'>
                                         <img src={`data:image/png;base64,${item.base64Image}`} alt="" />

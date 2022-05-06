@@ -2,14 +2,16 @@ import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import onLogout from "../../main/store/stores/user/login.store.on-logout"
 import Button from '@mui/material/Button';
+import { setSearch } from "../../main/store/stores/search/store.search";
 
-const Header = ({ setSearch }: any) => {
+const Header = () => {
 
     const dispatch = useDispatch()
 
     const handleSubmit = () => {
         dispatch(onLogout())
     }
+
 
     return (
         <header className="header">
@@ -24,7 +26,7 @@ const Header = ({ setSearch }: any) => {
                 <ul className="headerUl">
                     <li className="headerli">
                         <input className="search_bar" type="search" placeholder="Search..." name="search" onChange={e => {
-                            setSearch(e.target.value)
+                            dispatch(setSearch(e.target.value))
                         }} />
                     </li>
                 </ul>

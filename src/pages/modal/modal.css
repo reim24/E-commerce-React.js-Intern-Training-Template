@@ -1,0 +1,81 @@
+.modal-wrapper {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.185);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 15;
+    display: grid;
+    place-content: center;
+}
+
+.modal {
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    display: grid;
+    position: relative;
+    place-items: center;
+    gap: 1rem;
+}
+
+.close-modal {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background-color: #474747;
+    border-radius: 50%;
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-content: center;
+}
+
+.close-modal:hover {
+    background-color: #757575;
+    transform: scale(1.07);
+}
+
+.modal-container {
+    border-radius: 2%;
+    width: 330px;
+    height: auto;
+    display: grid;
+    grid-gap: 1rem;
+    box-shadow: -10px 10px 80px -20px #474747, 10px -10px 80px -20px #494949;
+    padding: 1.5rem;
+    align-content: start;
+}
+
+.modal-container form {
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.modal-container form input {
+    border: none;
+    border-bottom: solid rgb(202, 200, 200) 1px;
+    padding: 15px 0px;
+    width: 270px;
+}
+
+.modal-container form input:focus {
+    outline: none;
+}
+
+.modal-container form button {
+    background: -webkit-linear-gradient(#474747, #757575);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 270px;
+    cursor: pointer;
+}
+
+.modal-container form button:hover {
+    transform: scale(1.07);
+    transition: .2s;
+}
