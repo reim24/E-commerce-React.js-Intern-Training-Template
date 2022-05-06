@@ -11,6 +11,8 @@ import { RootState } from "../../main/store/redux/rootState"
 const DashboardPage: FC = () => {
 
     const [dataFromServer, setDataFromServer] = useState([])
+    const [category, SetCategory] = useState([])
+
     const search = useSelector((state: RootState) => state.search);
 
     async function getDataFroServer() {
@@ -18,8 +20,15 @@ const DashboardPage: FC = () => {
         (setDataFromServer(result.data))
     }
 
+    async function sscategory() {
+        let result = (await axios.get(`category/get-all?PageNumber=1&PageSize=20
+        `)).data;
+        (SetCategory(result.data))
+    }
+
     useEffect(() => {
         getDataFroServer()
+        sscategory()
     }, [])
 
 
@@ -30,6 +39,7 @@ const DashboardPage: FC = () => {
         })
         return copyOfDdata
     }
+
 
 
     if (dataFromServer === null) return <h1>loading</h1>

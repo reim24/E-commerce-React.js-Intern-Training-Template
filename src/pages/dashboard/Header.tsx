@@ -24,6 +24,9 @@ const Header = () => {
                         </li>
                     </Link>
                 </ul>
+
+            </nav>
+            <nav className="center_nav">
                 <ul className="headerUl">
                     <li className="headerli">
                         <input className="search_bar" type="search" placeholder="Search..." name="search" onChange={e => {
@@ -31,6 +34,7 @@ const Header = () => {
                         }} />
                     </li>
                 </ul>
+
             </nav>
             <nav className="nav_right">
                 <ul className="headerUl">
