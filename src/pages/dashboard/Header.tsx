@@ -12,7 +12,6 @@ const Header = () => {
         dispatch(onLogout())
     }
 
-
     return (
         <header className="header">
             <nav className="nav_left">

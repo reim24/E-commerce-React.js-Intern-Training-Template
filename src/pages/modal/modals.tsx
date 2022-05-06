@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../main/store/redux/rootState";
-import TestingModal from "./modal";
+import TestingModal from "./firstModal";
+
 
 
 function Modals() {
@@ -9,7 +10,8 @@ function Modals() {
 
     if (modal === '') {
         return null
-    } else if (modal === 'testingModal') {
+    }
+    else if (modal === 'testingModal') {
         return <div>{< TestingModal />}</div>
     }
 }

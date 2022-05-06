@@ -11,9 +11,7 @@ import { RootState } from "../../main/store/redux/rootState"
 const DashboardPage: FC = () => {
 
     const [dataFromServer, setDataFromServer] = useState([])
-
     const search = useSelector((state: RootState) => state.search);
-
 
     async function getDataFroServer() {
         let result = (await axios.get(`/product/get-all?PageNumber=1&PageSize=20`)).data;
@@ -27,14 +25,12 @@ const DashboardPage: FC = () => {
 
     function filterProducts() {
         let copyOfDdata = [...dataFromServer]
-
         copyOfDdata = copyOfDdata.filter(product => {
-            // @ts-ignore
-
             return product.name.toUpperCase().includes(search.toUpperCase())
         })
         return copyOfDdata
     }
+
 
     if (dataFromServer === null) return <h1>loading</h1>
     return (
