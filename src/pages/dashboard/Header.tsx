@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import onLogout from "../../main/store/stores/user/login.store.on-logout"
 import Button from '@mui/material/Button';
 import { setSearch } from "../../main/store/stores/search/store.search";
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Header = () => {
 
@@ -34,12 +36,18 @@ const Header = () => {
                 <ul className="headerUl">
                     <Link to={`/cart`}>
                         <li className="headerli">
-                            cart
+                            <ShoppingCartCheckoutIcon sx={{
+                                width: '2rem',
+                                marginBottom: "-0.4rem"
+                            }} />
                         </li>
                     </Link>
                     <Link to={`/profile`}>
                         <li className="headerli">
-                            profile
+                            <AccountCircleIcon sx={{
+                                width: '2rem',
+                                marginBottom: "-0.4rem"
+                            }} />
                         </li>
                     </Link>
                     <li className="headerli">

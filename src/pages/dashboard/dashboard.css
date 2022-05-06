@@ -65,16 +65,17 @@ a {
     display: grid;
     display: inline-block;
     justify-self: end;
+    align-items: center;
     margin: 0.1rem;
     padding: 0.5rem;
 }
 
 
+
+
 .headerUl {
     list-style: none;
 }
-
-
 
 
 .headerli {
@@ -83,7 +84,6 @@ a {
     display: inline;
 
 }
-
 
 
 .main_Section {

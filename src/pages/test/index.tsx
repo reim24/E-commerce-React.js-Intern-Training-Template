@@ -22,7 +22,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const TestPage: FC = () => {
 
-    const theme = createTheme()
+    const theme = createTheme({
+        palette: {
+            background: {
+                default: "#e4f0e2"
+            }
+        }
+    })
+
     const [userName, setUserName] = useState(null)
     const [password, setPassword] = useState(null)
 
@@ -40,7 +47,7 @@ const TestPage: FC = () => {
     }
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme} >
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box

@@ -16,7 +16,15 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const Register = () => {
 
-    const theme = createTheme()
+
+    const theme = createTheme({
+        palette: {
+            background: {
+                default: "#e4f0e2"
+            }
+        }
+    })
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

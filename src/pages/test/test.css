@@ -27,12 +27,18 @@
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
+
+}
+
+.MUI_container {
+    background-color: #146dac;
 }
 
 
 .button_container {
     display: grid;
     gap: 1rem;
+
 }
 
 .button__login {
