@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import IProduct from "../../../main/interfaces/IProduct"
 import { RootState } from "../../../main/store/redux/rootState"
-import { addProduct, ICartProduct } from "../../../main/store/stores/cart/cart.store"
+import { addProduct, changeProductQuantity, ICartProduct, IQuantityPayload } from "../../../main/store/stores/cart/cart.store"
 import { setModal } from "../../../main/store/stores/modal/state.modal"
 import Header from "../Header"
 import Modals from "../../modal/modals"
@@ -14,7 +14,7 @@ import Footer from "../Footer"
 const ProductDetails = () => {
 
     const [product, setProduct] = useState<IProduct | null>(null);
-    const [quantity, setQuantity] = useState<number>(1);
+    const [newQty, setNewQty] = useState<any>('');
 
 
     const params = useParams()
@@ -32,9 +32,14 @@ const ProductDetails = () => {
 
 
     const handleOnClick = () => {
-        const prd: ICartProduct = { product, quantity };
+        const prd: ICartProduct = { product: product, quantity: newQty };
         dispatch(addProduct(prd));
     };
+
+
+    const hanndleQuantity = (e: any) => {
+        setNewQty(e.target.value)
+    }
 
 
 
@@ -59,6 +64,15 @@ const ProductDetails = () => {
                     <p>{product?.longDescription}</p>
                     <br />
                     <button className="add_to_cart_btn" onClick={handleOnClick}>Add to cart</button>
+
+                    < select name="quantity" id="quantity_select" onChange={hanndleQuantity}>
+                        <option disabled selected > QTY </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                     <button className="add_to_cart_btn" onClick={() => {
                         dispatch(setModal('testingModal'))
                     }}>modal</button>
