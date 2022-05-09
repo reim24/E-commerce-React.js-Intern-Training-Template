@@ -1,0 +1,29 @@
+.main__ {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Categories_section {
+    display: grid;
+    margin-top: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1rem;
+    justify-items: center;
+}
+
+.container {
+    display: grid;
+    height: 200px;
+    width: 200px;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0px 10px 18px -9px rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.712);
+    border-radius: 10px;
+}
+
+.container h1 {
+    font-weight: 200;
+}

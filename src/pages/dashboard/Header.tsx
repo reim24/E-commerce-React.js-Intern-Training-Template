@@ -23,6 +23,11 @@ const Header = () => {
                             Home
                         </li>
                     </Link>
+                    <Link to={`/categories`}>
+                        <li className="headerli">
+                            Categories
+                        </li>
+                    </Link>
                 </ul>
 
             </nav>
