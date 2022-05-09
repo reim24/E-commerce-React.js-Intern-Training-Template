@@ -28,9 +28,6 @@ const Categories = () => {
     }, [])
 
 
-    console.log(category);
-
-
     return (
         <main className="main__">
 
