@@ -154,3 +154,10 @@ a {
     margin-top: 8px;
     margin-bottom: 8px;
 }
+
+
+.footer {
+    background-color: #1976d2da;
+    color: white;
+    height: 100px;
+}

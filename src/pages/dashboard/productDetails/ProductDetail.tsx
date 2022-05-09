@@ -9,6 +9,7 @@ import { setModal } from "../../../main/store/stores/modal/state.modal"
 import Header from "../Header"
 import Modals from "../../modal/modals"
 import './product.css'
+import Footer from "../Footer"
 
 const ProductDetails = () => {
 
@@ -67,6 +68,7 @@ const ProductDetails = () => {
             </div>
 
             <Modals />
+            <Footer />
         </section>
     )
 }

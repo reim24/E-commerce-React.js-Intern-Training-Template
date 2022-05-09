@@ -4,6 +4,7 @@ import useGetUser from "../../main/hooks/useGetUser"
 import Header from "../dashboard/Header"
 import './profile.css'
 import IBank from '../../main/interfaces/IBank'
+import Footer from "../dashboard/Footer"
 
 
 const Profile = () => {
@@ -46,7 +47,7 @@ const Profile = () => {
     }, [])
 
 
-    return <section className="profile_wrapper">
+    return (<section className="profile_wrapper">
         <Header />
 
         <div className="sidebar">
@@ -86,8 +87,10 @@ const Profile = () => {
                 </div>
             </div>
         </div>
+        <Footer />
 
     </section >
+    )
 }
 
 export default Profile

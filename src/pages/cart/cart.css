@@ -3,6 +3,7 @@
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 0.2rem;
+    height: 100vh;
 }
 
 .left_section {
