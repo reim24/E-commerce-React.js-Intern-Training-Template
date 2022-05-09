@@ -16,7 +16,7 @@ const Profile = () => {
 
     async function getBanks() {
 
-        const result = (await axios.get(`http://reimusabelli-001-site1.itempurl.com/api/bankaccount/get-all?PageNumber=1&PageSize=10`)).data
+        const result = (await axios.get(`bankaccount/get-all?PageNumber=1&PageSize=10`)).data
         setBankInfo(result.data)
     }
 
@@ -29,7 +29,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let result = (await axios.get(`bankaccount/${selectedBank?.id}/transactions?PageNumber=1&PageSize=10`)).data;
+                let result = (await axios.get(`bankaccount/${selectedBank?.id}/transactions?PageNumber=1&PageSize=20`)).data;
                 setTransactions(result.data)
             } catch (err) {
                 console.log(err);
