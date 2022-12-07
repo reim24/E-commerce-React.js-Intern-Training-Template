@@ -14,23 +14,23 @@ class AuthManager {
     return JwtManager.accessToken;
   }
 
-  static async getUserFromToken(token:string): Promise<IUser> {
+  static async getUserFromToken(token: string): Promise<IUser> {
     let userInfo: IUser = null;
-debugger
-      try {
-        let result = await (await axios.get(`authentication/validate-token?token=${token}`)).data;
-        userInfo = result;
-      } catch (e) {
-        throw e;
-      }
+    debugger
+    try {
+      let result = await (await axios.get(`authentication/validate-token`, { headers: { token: token } })).data;
+      userInfo = result;
+    } catch (e) {
+      throw e;
+    }
     return userInfo;
   }
 
   static async getTokenWithCredentials(payload: ILoginRequest): Promise<IUserInfo> {
 
-    const { data }  = await axios.post('authentication/login',payload);
-    const user  = await AuthManager.getUserFromToken(data.token);
-    
+    const { data } = await axios.post('authentication/login', payload);
+    const user = await AuthManager.getUserFromToken(data.token);
+
     const responseLogin: IUserInfo = {
       user: user,
       token: data?.token
@@ -48,12 +48,9 @@ debugger
     return response;
   }
 
-  static async register(user: IUser): Promise<void> {
-    const { data }  = await axios.post('authentication/register',user);
-    if (data?.token) {
-      JwtManager.setAccessToken(data.token);
-      window.location.pathname='/';
-    }
+  static async register(user: IUser): Promise<any> {
+    const { data } = await axios.post('authentication/register', user);
+    return data;
   }
   static logout() {
     JwtManager.clearToken();

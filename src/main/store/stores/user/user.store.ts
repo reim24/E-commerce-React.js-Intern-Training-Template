@@ -6,7 +6,7 @@ const userStore = createSlice({
   initialState: null as IUser,
   reducers: {
     setUser(_state, action: PayloadAction<IUser>) {
-      return {...action.payload, password:''};
+      return action.payload;
     },
   },
 });
