@@ -7,6 +7,14 @@
       "lastname": "musabelli",
       "age": 23,
       "id": 1
+    },
+    {
+      "email": "erald@gmail.com",
+      "password": "$2a$10$D.TKUt8nanNbHZIk5IuW.e7E.9y05d53azo.M1p70YrX7kfN/R8oq",
+      "firstname": "Erald",
+      "lastname": "Shehu",
+      "age": 23,
+      "id": 2
     }
   ],
   "products": [

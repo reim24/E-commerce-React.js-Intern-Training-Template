@@ -9,8 +9,7 @@ const App = () => {
       <AppNavigate />
       <Routes>
         <Route path="/" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
-        <Route path="/login" element={<>test</>} />
-
+        <Route path="/login" element={<PrivateRoute isPageLogin>test</PrivateRoute>} />
       </Routes>
     </BrowserRouter>
   );

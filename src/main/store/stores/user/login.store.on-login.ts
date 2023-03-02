@@ -8,8 +8,8 @@ import JwtManager from '../../../utils/jwtManager';
 const onLogin = (payload: ILoginRequest): AppThunk => async (dispatch) => {
   try {
     const response = await AuthManager.loginWithCredentials({ ...payload });
-    if (response.user && response.token) {
-      JwtManager.setAccessToken(response.token);
+    if (response.user && response.accessToken) {
+      JwtManager.setAccessToken(response.accessToken);
       dispatch(setUser(response.user));
       dispatch(navigateTo('/'));
     }

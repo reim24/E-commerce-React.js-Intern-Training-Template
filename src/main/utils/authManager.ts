@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 
 export interface IUserInfo {
   user: IUser;
-  token: string;
+  accessToken: string;
 }
 
 class AuthManager {

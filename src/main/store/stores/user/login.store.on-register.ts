@@ -8,8 +8,8 @@ import { navigateTo } from '../navigation/navigation.store';
 const onRegister = (payload: IUser): AppThunk => async (dispatch) => {
   try {
     const response = await AuthManager.register({ ...payload });
-    if (response?.token) {
-      JwtManager.setAccessToken(response.token);
+    if (response?.accessToken) {
+      JwtManager.setAccessToken(response.accessToken);
       dispatch(setUser(payload));
       dispatch(navigateTo('/'));
     }
