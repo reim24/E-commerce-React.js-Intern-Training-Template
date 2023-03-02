@@ -35,7 +35,7 @@ class AuthManager {
 
     const responseLogin: IUserInfo = {
       user: data?.user,
-      token: data?.token
+      accessToken: data?.accessToken
     };
     return responseLogin;
   }
