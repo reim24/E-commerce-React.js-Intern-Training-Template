@@ -1,13 +1,11 @@
 
 interface IUser {
-  	id?: number;
+	id?: number;
 	firstName: string;
 	lastName: string;
 	email: string;
-	birthdate: string
-	phone: string
-	username: string
 	password?: string;
+	age?: number;
 }
 
 export default IUser;

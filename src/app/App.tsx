@@ -9,6 +9,8 @@ const App = () => {
       <AppNavigate />
       <Routes>
         <Route path="/" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
+        <Route path="/login" element={<>test</>} />
+
       </Routes>
     </BrowserRouter>
   );

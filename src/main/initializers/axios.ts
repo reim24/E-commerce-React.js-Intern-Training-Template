@@ -3,10 +3,9 @@ import JwtManager from '../utils/jwtManager';
 import eHttpResponse from '../assets/enums/eHttpResponse';
 import eNotificationType from '../assets/enums/eNotificationType';
 import { toast } from 'react-toastify';
-import { navigateTo } from '../store/stores/navigation/navigation.store';
 
-const handleResponseMessage = (message:string ,  notificationType: eNotificationType) =>{
-  switch(notificationType){
+const handleResponseMessage = (message: string, notificationType: eNotificationType) => {
+  switch (notificationType) {
     case eNotificationType.Success:
       toast.info(`${message}`, {
         position: "top-center",
@@ -53,7 +52,7 @@ const axiosInit = async () => {
           window.location.href = urlRedirect;
         }
         if (error.response.data?.message) {
-          handleResponseMessage(error.response.data?.message,eNotificationType.Error)
+          handleResponseMessage(error.response.data?.message, eNotificationType.Error)
         }
         if (error.response.status === eHttpResponse.NotFound) {
           Error('axiosInit: action not found')

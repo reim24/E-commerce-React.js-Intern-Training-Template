@@ -2,6 +2,7 @@ import JwtManager from './jwtManager';
 import IUser from '../interfaces/IUser';
 import ILoginRequest from '../interfaces/ILoginRequest';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 export interface IUserInfo {
   user: IUser;
@@ -18,7 +19,9 @@ class AuthManager {
     let userInfo: IUser = null;
     debugger
     try {
-      let result = await (await axios.get(`authentication/validate-token`, { headers: { token: token } })).data;
+      let userId = (jwt_decode(token) as any).sub;
+      let result = await (await axios.get(`users/${userId}`)).data;
+
       userInfo = result;
     } catch (e) {
       throw e;
@@ -28,18 +31,12 @@ class AuthManager {
 
   static async getTokenWithCredentials(payload: ILoginRequest): Promise<IUserInfo> {
 
-    const { data } = await axios.post('authentication/login', payload);
-    const user = await AuthManager.getUserFromToken(data.token);
+    const { data } = await axios.post('login', payload);
 
     const responseLogin: IUserInfo = {
-      user: user,
+      user: data?.user,
       token: data?.token
     };
-
-    if (responseLogin?.token) {
-      JwtManager.setAccessToken(responseLogin.token);
-    }
-
     return responseLogin;
   }
 
@@ -49,7 +46,7 @@ class AuthManager {
   }
 
   static async register(user: IUser): Promise<any> {
-    const { data } = await axios.post('authentication/register', user);
+    const { data } = await axios.post('register', user);
     return data;
   }
   static logout() {
