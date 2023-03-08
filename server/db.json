@@ -116,13 +116,27 @@
       "amount": 100,
       "description": "Blerje",
       "dateCreated": "2022-04-14T11:38:59.4989674"
+    },
+    {
+      "bankAccountId": 1,
+      "amount": 100,
+      "description": "Blerje 2",
+      "dateCreated": "2022-04-14T11:38:59.4989674",
+      "id": 2
+    },
+    {
+      "bankAccountId": 1,
+      "amount": 100,
+      "description": "Blerje 2",
+      "dateCreated": "2022-04-14T11:38:59.4989674",
+      "id": 3
     }
   ],
   "bankAccounts": [
     {
       "id": 1,
       "name": "Euro Account",
-      "balance": 1000,
+      "balance": 500,
       "userId": 1,
       "isActive": true,
       "dateCreated": "2022-04-14T11:07:37.8915424"
