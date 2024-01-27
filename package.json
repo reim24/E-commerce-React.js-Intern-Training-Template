@@ -1,62 +1,36 @@
 {
-  "name": "intern",
-  "version": "0.1.0",
+  "name": "intern-template",
   "private": true,
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.8.0",
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.26.1",
-    "bcryptjs": "^2.4.3",
-    "dotenv": "^16.0.0",
-    "encrypt-storage": "^2.2.6",
-    "express": "^4.18.2",
-    "json-server": "^0.17.2",
-    "jsonwebtoken": "^9.0.0",
-    "jwt-decode": "^3.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-hook-form": "^7.20.2",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.0",
-    "react-toastify": "^8.1.0",
-    "typescript": "^4.4.4",
-    "web-vitals": "^2.1.4"
-  },
+  "type": "module",
+  "version": "0.0.0",
   "scripts": {
-    "start": "react-scripts start",
-    "start-server": "nodemon ./server/index.ts",
-    "start-server:inspect": "nodemon --inspect ./server/index.ts",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.7",
+    "encrypt-storage": "^2.12.22",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.21.3"
   },
   "devDependencies": {
-    "@types/express": "^4.17.17",
-    "@types/json-server": "^0.14.4",
-    "@types/node": "^18.13.0",
-    "nodemon": "^2.0.20",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.11.7",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "jsdom": "^23.2.0",
+    "prettier": "^3.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
   }
 }
