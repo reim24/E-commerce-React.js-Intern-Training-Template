@@ -2,6 +2,43 @@
 
 Preconfigured template designed to train new interns on building an e-commerce React.js website.
 
+## Features Overview
+
+Interns are expected to implement the following key features in their final project:
+
+1. **Authentication**:
+
+   - User Login.
+   - User Registration.
+
+2. **User Management**:
+
+   - View and Edit Profile Information.
+
+3. **Dashboard**:
+
+   - Display List of Products.
+
+4. **Bank Account Management**:
+
+   - Display List of Bank Accounts.
+   - Perform CRUD (Create, Read, Update, Delete) operations on Bank Accounts.
+
+5. **Shopping Cart**:
+
+   - Review Items in Cart.
+
+6. **Checkout Process**:
+
+   - Manage Checkout and Payment Transactions.
+
+7. **Transaction Management**:
+   - Detailed List and Management of User Transactions.
+
+## Structure
+
+- [🗄️ Project Structure](project-structure.md)
+
 ## Getting Started
 
 Follow these simple steps to set up the project:
@@ -26,15 +63,20 @@ Utilize the following API endpoints to interact with the mock-up API:
    - Endpoint: `/register`
    - Request Body: `{ "email": "your_email@example.com", "password": "your_password", "age": 25, "firstname": "John", "lastname": "Doe" }`
 
-3. **Products** (GET):
+3. **User Update** (PUT):
+
+   - Endpoint: `/users/{userId}`
+   - Request Body: `{ "email": "your_email@example.com", "age": 26, "firstname": "Johnny", "lastname": "Doe" }`
+
+4. **Products** (GET):
 
    - Endpoint: `/products`
 
-4. **Transactions** (GET, POST):
+5. **Transactions** (GET, POST):
 
    - Endpoint: `/transactions`
    - Request Body: `{ "bankAccountId": 123, "amount": 100, "description": "Transaction details", "dateCreated": "2023-08-01" }`
 
-5. **Bank Accounts** (GET, POST, PUT):
+6. **Bank Accounts** (GET, POST, PUT):
    - Endpoint: `/bankAccounts`
    - Request Body: `{ "name": "Savings Account", "balance": 1000, "userId": 456, "isActive": true, "dateCreated": "2023-07-01" }`
