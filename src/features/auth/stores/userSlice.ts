@@ -1,7 +1,7 @@
 import { PayloadAction } from "@reduxjs/toolkit"
 import { TUser } from "../../../types"
 import { createAppSlice } from "../../../app/createAppSlice"
-import { TLoginRequest } from "../types"
+import { TLoginRequest, TRegisterRequest } from "../types"
 import { loginWithCredentials } from "../api/login"
 import { registerUser } from "../api/register"
 import JwtManager from "../utils/jwtManager"
@@ -35,9 +35,9 @@ export const userSlice = createAppSlice({
       },
     ),
     register: create.asyncThunk(
-      async (payload: TUser) => {
+      async (payload: TRegisterRequest) => {
         const response = await registerUser(payload)
-        return { accessToken: response.accessToken, user: payload }
+        return response
       },
       {
         fulfilled: (state, action) => {
@@ -51,7 +51,7 @@ export const userSlice = createAppSlice({
     ),
     logout: create.asyncThunk(
       async () => {
-        JwtManager.clearToken()
+        JwtManager.clearToken() // mockup api call 
         return
       },
       {

@@ -20,6 +20,14 @@
       "email": "rei@gmail.com",
       "password": "$2a$10$d2T8oY5ld21MGU/1z36Y6eZV8ikSmP7mY2mAYA5HSzLjzJaU/hcnu",
       "id": 3
+    },
+    {
+      "email": "musabellirei@gmail.com",
+      "password": "$2a$10$3Gm34rXS8jcOwqMZaFfdlewkeCtUBlVR3h0kTOfIK/q3QIN4YWqLy",
+      "age": 24,
+      "firstname": "Rei",
+      "lastname": "Musabelli",
+      "id": 4
     }
   ],
   "products": [
